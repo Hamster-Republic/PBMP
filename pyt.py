@@ -1,14 +1,23 @@
 #!/usr/bin/python3
-import math
-import sys
+def factorize(number):
+  
+    if number < 1:
+        raise ValueError("Number must be a positive integer.")
 
-a = []
+    factors = []
+    divisor = 2
 
-for line in sys.stdin:
-    ... # line
+    while number > 1:
+        while number % divisor == 0:
+            factors.append(divisor)
+            number //= divisor
 
-a.append(line)
+        divisor += 1
+
+    return factors
 
 
-a.sort(reverse=True)
-print('\n'.join(sorted(sys.stdin)))
+number = int(input("Enter a positive integer: "))
+print(factorize(number))
+
+
